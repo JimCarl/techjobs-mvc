@@ -38,7 +38,17 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
+    <div th:fragment="printjobs" th:if="${jobs} and ${jobs.size()}">
+    <table th:each="job, idx : ${jobs}" class="job-listing">
+        <tr th:each="row, idx : ${job}" th:class="${idx.odd} ? 'odd'">
+        <th th:text="${row.key}"> </th>
+        <td th:text="${row.value}"></td>
+    </tr>
+    </table>
+
+    </div>
 </div>
+
 
 </body>
 </html>
